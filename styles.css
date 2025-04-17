@@ -68,18 +68,16 @@ nav ul li a {
 }
 
 .hero h2 {
-    font-size: 4em; /* Tamaño grande */
+    font-size: 3em;
     margin: 0;
     font-family: 'Playfair Display', serif;
-    color: #ffffff; /* Color blanco */
 }
 
 .hero p {
-    font-size: 2em; /* Tamaño del texto del slogan */
+    font-size: 1.5em;
     font-family: 'Lato', sans-serif;
     max-width: 800px;
     margin-top: 20px;
-    color: #ffffff; /* Color blanco */
 }
 
 /* Efecto de sombra en el texto */
@@ -90,11 +88,11 @@ nav ul li a {
 /* Responsivo */
 @media (max-width: 768px) {
     .hero h2 {
-        font-size: 3em; /* Reducir tamaño en pantallas pequeñas */
+        font-size: 2.5em;
     }
 
     .hero p {
-        font-size: 1.5em; /* Reducir tamaño en pantallas pequeñas */
+        font-size: 1.2em;
     }
 }
 

@@ -24,6 +24,22 @@ header nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #FCFCFC; /* Fondo del menú */
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+header nav .logo {
+    width: 150px; /* Tamaño del logo */
+    margin-bottom: 20px; /* Separación del logo */
+}
+
+header nav p.slogan {
+    font-family: 'Lato', sans-serif;
+    color: #3D2C41; /* Color del slogan */
+    font-size: 1.5rem; /* Tamaño de la fuente del slogan */
+    margin-left: 15px; /* Separación con el logo */
+    font-weight: 400;
 }
 
 header nav ul {
@@ -36,9 +52,10 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: white;
+    color: #3D2C41; /* Color del texto en el menú */
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
+    font-size: 1rem; /* Tamaño similar al del menú de la página que copiaste */
 }
 
 .hero {
@@ -103,3 +120,4 @@ footer {
     text-align: center;
     padding: 20px;
 }
+

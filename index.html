@@ -3,135 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iterum - Consultoría Estratégica</title>
-    <!-- Enlazamos el CSS -->
+    <title>Iterum Consultoría Analítica</title>
+    <!-- Cargando las fuentes desde Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Estilos globales */
-        body {
-            font-family: 'Lato', sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Estilo del encabezado */
-        header {
-            background-color: #CFCFCF; /* Fondo del menú */
-            color: #3D2C41; /* Color de los textos del menú */
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        header .logo img {
-            height: 40px; /* Ajusta el tamaño del logo */
-        }
-
-        header .logo h1 {
-            font-family: 'Playfair Display', serif;
-            margin-left: 10px;
-            font-size: 1.8em;
-            color: #3D2C41;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-        }
-
-        nav ul li {
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            color: #3D2C41; /* Color de los botones */
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* Estilo para la sección hero */
-        .hero {
-            background-image: url('https://github.com/jazmoresco1/iterum/raw/main/images/mi-imagen.png'); /* URL de tu imagen */
-            background-size: cover;
-            background-position: center;
-            height: 100vh; /* Altura completa de la ventana */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #ffffff;
-            position: relative;
-        }
-
-        .hero-content {
-            z-index: 2;
-        }
-
-        .hero h2 {
-            font-size: 4em; /* Tamaño grande */
-            margin: 0;
-            font-family: 'Playfair Display', serif;
-            color: #ffffff; /* Color blanco */
-        }
-
-        .hero p {
-            font-size: 2em; /* Tamaño del texto del slogan */
-            font-family: 'Lato', sans-serif;
-            max-width: 800px;
-            margin-top: 20px;
-            color: #ffffff; /* Color blanco */
-        }
-
-        /* Efecto de sombra en el texto */
-        .hero h2, .hero p {
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        }
-
-        /* Responsivo */
-        @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 3em; /* Reducir tamaño en pantallas pequeñas */
-            }
-
-            .hero p {
-                font-size: 1.5em; /* Reducir tamaño en pantallas pequeñas */
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlazando el archivo CSS -->
 </head>
 <body>
     <!-- Encabezado -->
     <header>
-        <div class="logo">
-            <img src="https://github.com/jazmoresco1/iterum/raw/main/images/logo.png" alt="Iterum Logo"> <!-- Asegúrate de tener la URL correcta para el logo -->
-            <h1>Iterum</h1>
-        </div>
         <nav>
+            <img src="logo.png" alt="Logo Iterum" class="logo"> <!-- Logo -->
+            <p class="slogan">Soluciones Estratégicas</p> <!-- Slogan -->
             <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Servicios</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#about">Nosotros</a></li>
+                <li><a href="#contact">Contacto</a></li>
             </ul>
         </nav>
+        <div class="hero">
+            <h1>Consultoría Analítica para Impulsar Tu Negocio</h1>
+            <p>Ofrecemos soluciones basadas en datos para una toma de decisiones más estratégica.</p>
+        </div>
     </header>
 
-    <!-- Sección Hero -->
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Transformamos datos en decisiones estratégicas que impulsan tu éxito.</h2>
-            <p>Potencia tu negocio mediante un análisis profundo y soluciones personalizadas.</p>
+    <!-- Servicios -->
+    <section id="services">
+        <h2>Servicios</h2>
+        <div class="service-item">
+            <h3>Análisis de Datos</h3>
+            <p>Con nuestro análisis detallado, tomas decisiones más informadas y estratégicas.</p>
+        </div>
+        <div class="service-item">
+            <h3>Consultoría Estratégica</h3>
+            <p>Transforma tu organización con soluciones personalizadas basadas en datos.</p>
+        </div>
+        <div class="service-item">
+            <h3>Automatización de Procesos</h3>
+            <p>Implementamos herramientas para optimizar y automatizar tus flujos de trabajo.</p>
         </div>
     </section>
+
+    <!-- Nosotros -->
+    <section id="about">
+        <h2>Nosotros</h2>
+        <p>Iterum es una consultora especializada en transformar datos en decisiones inteligentes. Contamos con un equipo altamente capacitado para ofrecer soluciones personalizadas.</p>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contact">
+        <h2>Contacto</h2>
+        <p>Contáctanos para conocer más sobre nuestros servicios o para agendar una consulta.</p>
+        <form>
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Correo Electrónico</label>
+            <input type="email" id="email" name="email" required>
+            <textarea id="message" name="message" placeholder="Escribe tu mensaje..." required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Iterum. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
 

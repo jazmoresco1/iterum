@@ -3,53 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iterum</title>
+    <title>Iterum - Consultoría Estratégica</title>
+    <!-- Enlazamos el CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos globales */
+        body {
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilo del encabezado */
+        header {
+            background-color: #CFCFCF; /* Fondo del menú */
+            color: #3D2C41; /* Color de los textos del menú */
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo img {
+            height: 40px; /* Ajusta el tamaño del logo */
+        }
+
+        header .logo h1 {
+            font-family: 'Playfair Display', serif;
+            margin-left: 10px;
+            font-size: 1.8em;
+            color: #3D2C41;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #3D2C41; /* Color de los botones */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Estilo para la sección hero */
+        .hero {
+            background-image: url('https://github.com/usuario/repositorio/raw/main/images/mi-imagen.jpg'); /* URL de tu imagen */
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Altura completa de la ventana */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-size: 4em; /* Tamaño grande */
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            color: #ffffff; /* Color blanco */
+        }
+
+        .hero p {
+            font-size: 2em; /* Tamaño del texto del slogan */
+            font-family: 'Lato', sans-serif;
+            max-width: 800px;
+            margin-top: 20px;
+            color: #ffffff; /* Color blanco */
+        }
+
+        /* Efecto de sombra en el texto */
+        .hero h2, .hero p {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 3em; /* Reducir tamaño en pantallas pequeñas */
+            }
+
+            .hero p {
+                font-size: 1.5em; /* Reducir tamaño en pantallas pequeñas */
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Encabezado -->
     <header>
+        <div class="logo">
+            <img src="https://github.com/usuario/repositorio/raw/main/images/logo.png" alt="Iterum Logo"> <!-- Asegúrate de tener la URL correcta para el logo -->
+            <h1>Iterum</h1>
+        </div>
         <nav>
-            <img src="logo.png" alt="Logo Iterum" class="logo">
-            <p class="slogan">Soluciones Estratégicas</p>
             <ul>
-                <li><a href="#services">Servicios</a></li>
-                <li><a href="#about">Nosotros</a></li>
-                <li><a href="#contact">Contacto</a></li>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Contacto</a></li>
             </ul>
-            <!-- Botón de menú en dispositivos móviles -->
-            <button id="menu-toggle" class="menu-toggle">☰</button>
         </nav>
     </header>
 
-    <section id="services">
-        <h2>Servicios</h2>
-        <p>Descripción de los servicios que ofrecemos...</p>
+    <!-- Sección Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Transformamos datos en decisiones estratégicas que impulsan tu éxito.</h2>
+            <p>Potencia tu negocio mediante un análisis profundo y soluciones personalizadas.</p>
+        </div>
     </section>
-
-    <section id="about">
-        <h2>Nosotros</h2>
-        <p>Acerca de la empresa...</p>
-    </section>
-
-    <section id="contact">
-        <h2>Contacto</h2>
-        <p>Información de contacto...</p>
-    </section>
-
-    <footer>
-        <p>© 2025 Iterum. Todos los derechos reservados.</p>
-    </footer>
-
-    <script>
-        // Seleccionamos el menú de navegación
-        const menuToggle = document.querySelector('#menu-toggle');
-        const navMenu = document.querySelector('nav ul');
-
-        // Activamos el menú desplegable cuando se hace clic
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-    </script>
 </body>
 </html>
+

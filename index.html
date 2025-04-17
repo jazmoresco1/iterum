@@ -14,7 +14,7 @@
             --secondary-color: #CFCFCF;
             --white-color: #FDFDFD;
             --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            --menu-height: 70px; /* Variable para la altura del menú */
+            --menu-height: 90px; /* Aumentado para un logo más grande */
         }
         
         * {
@@ -49,6 +49,12 @@
             width: 100%;
             top: 0;
             z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background-color: rgba(207, 207, 207, 0.95);
+            backdrop-filter: blur(5px);
         }
         
         .header-container {
@@ -63,12 +69,15 @@
             display: flex;
             align-items: center;
             height: var(--menu-height);
+            flex: 1;
         }
         
         .logo {
             height: 100%; /* Hará que el logo ocupe toda la altura disponible */
             max-height: var(--menu-height);
             display: block;
+            padding: 5px 0;
+            transition: all 0.3s ease;
         }
         
         .slogan {
@@ -84,21 +93,50 @@
             height: var(--menu-height);
             align-items: center;
             padding: 0;
+            margin-left: auto; /* Empuja el menú hacia la derecha */
         }
         
         .nav-links li {
-            margin-left: 30px;
+            margin-left: 40px; /* Aumentado el espacio entre elementos del menú */
         }
         
         .nav-links a {
             text-decoration: none;
             color: #333;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: color 0.3s, transform 0.3s;
+            position: relative;
+            display: block;
+            padding: 5px 0;
         }
         
         .nav-links a:hover {
             color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a.active {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .nav-links a.active::after {
+            width: 100%;
         }
         
         .menu-toggle {
@@ -112,37 +150,61 @@
         
         /* Hero Section */
         .hero {
-            padding: 150px 0 100px;
+            padding: 180px 0 120px; /* Aumentado para compensar el menú más alto */
             background-color: var(--primary-color);
             color: var(--white-color);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(61, 44, 65, 0.8) 0%, rgba(61, 44, 65, 0.95) 100%);
+            z-index: 1;
+        }
+        
+        .hero .container {
+            position: relative;
+            z-index: 2;
         }
         
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            animation: fadeInUp 1s ease;
         }
         
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 800px;
-            margin: 0 auto 30px;
+            margin: 0 auto 40px;
+            animation: fadeInUp 1s ease 0.2s;
+            animation-fill-mode: both;
         }
         
         .cta-button {
             display: inline-block;
             background-color: var(--white-color);
             color: var(--primary-color);
-            padding: 12px 30px;
-            border-radius: 5px;
+            padding: 12px 32px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
             transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease 0.4s;
+            animation-fill-mode: both;
         }
         
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
         }
         
         /* Services Section */
@@ -156,6 +218,19 @@
             margin-bottom: 60px;
             color: var(--primary-color);
             font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
         }
         
         .services-grid {
@@ -169,11 +244,14 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: var(--box-shadow);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            top: 0;
         }
         
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         
         .service-icon {
@@ -187,6 +265,12 @@
             margin: 30px auto 20px;
             color: var(--white-color);
             font-size: 30px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+            background-color: #4d3651;
         }
         
         .service-content {
@@ -197,6 +281,11 @@
         .service-content h3 {
             color: var(--primary-color);
             margin-bottom: 15px;
+            transition: color 0.3s;
+        }
+        
+        .service-card:hover .service-content h3 {
+            color: #4d3651;
         }
         
         /* About Section */
@@ -217,19 +306,43 @@
         
         .about-text h2 {
             color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .about-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .about-text p {
             margin-bottom: 20px;
-            font-size: 2.2rem;
+            font-size: 1.05rem;
         }
         
         .about-image {
             flex: 1;
             text-align: center;
+            position: relative;
         }
         
         .about-image img {
             max-width: 100%;
             border-radius: 10px;
             box-shadow: var(--box-shadow);
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
         
         /* Features Section */
@@ -246,17 +359,31 @@
         
         .feature-item {
             text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
         
         .feature-icon {
             font-size: 40px;
             color: var(--primary-color);
             margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .feature-item:hover .feature-icon {
+            transform: scale(1.2);
         }
         
         .feature-item h3 {
             margin-bottom: 15px;
             color: var(--primary-color);
+            font-size: 1.5rem;
         }
         
         /* Contact Section */
@@ -264,6 +391,7 @@
             padding: 100px 0;
             background-color: var(--primary-color);
             color: var(--white-color);
+            position: relative;
         }
         
         .contact-container {
@@ -274,28 +402,53 @@
         
         .contact-info h2 {
             margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .contact-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--white-color);
         }
         
         .contact-info p {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
         }
         
         .contact-info-item {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            transition: transform 0.3s;
+        }
+        
+        .contact-info-item:hover {
+            transform: translateX(10px);
         }
         
         .contact-icon {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             background-color: var(--white-color);
             color: var(--primary-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
+            margin-right: 20px;
+            font-size: 18px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        
+        .contact-info-item:hover .contact-icon {
+            transform: rotate(360deg);
+            background-color: #f0f0f0;
         }
         
         .contact-form {
@@ -308,25 +461,45 @@
         .contact-form h2 {
             color: var(--primary-color);
             margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .contact-form h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             color: #333;
             font-weight: 500;
+            font-size: 0.95rem;
         }
         
         .form-control {
             width: 100%;
-            padding: 12px;
+            padding: 12px 15px;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-family: 'Lato', sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(61, 44, 65, 0.2);
+            outline: none;
         }
         
         textarea.form-control {
@@ -338,17 +511,21 @@
             background-color: var(--primary-color);
             color: var(--white-color);
             border: none;
-            padding: 12px 30px;
-            border-radius: 5px;
+            padding: 14px 30px;
+            border-radius: 50px;
             cursor: pointer;
             font-size: 16px;
             font-weight: 700;
             font-family: 'Lato', sans-serif;
             transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: inline-block;
         }
         
         .submit-btn:hover {
             background-color: #4d3651;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
         
         /* Footer */
@@ -366,8 +543,20 @@
         }
         
         .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
         }
         
         .footer-links {
@@ -375,23 +564,25 @@
         }
         
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         
         .footer-links a {
             color: #bbb;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            display: inline-block;
         }
         
         .footer-links a:hover {
             color: var(--white-color);
+            transform: translateX(5px);
         }
         
         .social-links {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
         
         .social-icon {
@@ -408,13 +599,68 @@
         
         .social-icon:hover {
             background-color: var(--primary-color);
-            transform: translateY(-3px);
+            transform: translateY(-5px) rotate(360deg);
         }
         
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid #444;
+        }
+        
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Botón de volver arriba */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            background-color: #4d3651;
+            transform: translateY(-5px);
         }
         
         /* Responsive Design */
@@ -426,9 +672,17 @@
             .service-card {
                 margin-bottom: 30px;
             }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
         }
         
         @media (max-width: 768px) {
+            :root {
+                --menu-height: 70px; /* Reducido para móviles */
+            }
+            
             .header-container {
                 padding: 0 15px;
             }
@@ -452,6 +706,7 @@
                 text-align: center;
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
                 height: auto;
+                z-index: 100;
             }
             
             .nav-links.active {
@@ -464,19 +719,32 @@
                 border-bottom: 1px solid #bbb;
             }
             
+            .hero {
+                padding: 140px 0 100px;
+            }
+            
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.3rem;
             }
             
             .hero p {
                 font-size: 1rem;
             }
+            
+            .section-title {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Botón Volver Arriba -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
     <!-- Header -->
-    <header>
+    <header id="header">
         <div class="container header-container">
             <div class="logo-container">
                 <a href="#"><img src="logo.png" alt="Iterum Logo" class="logo"></a>
@@ -486,7 +754,7 @@
                 <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#">Inicio</a></li>
+                <li><a href="#" class="active">Inicio</a></li>
                 <li><a href="#services">Servicios</a></li>
                 <li><a href="#about">Nosotros</a></li>
                 <li><a href="#features">Soluciones</a></li>
@@ -507,9 +775,9 @@
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
-            <h2 class="section-title">Nuestros Servicios</h2>
+            <h2 class="section-title fade-in">Nuestros Servicios</h2>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card fade-in">
                     <div class="service-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
@@ -519,7 +787,7 @@
                     </div>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card fade-in">
                     <div class="service-icon">
                         <i class="fas fa-cogs"></i>
                     </div>
@@ -529,7 +797,7 @@
                     </div>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card fade-in">
                     <div class="service-icon">
                         <i class="fas fa-database"></i>
                     </div>
@@ -546,13 +814,13 @@
     <section class="about" id="about">
         <div class="container">
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text fade-in">
                     <h2>Sobre Iterum</h2>
                     <p>Somos una consultoría especializada en datos y back office comprometida con ayudar a las empresas a alcanzar su máximo potencial a través de la optimización de procesos y el análisis de datos.</p>
                     <p>En Iterum, combinamos conocimiento técnico con experiencia práctica para ofrecer soluciones personalizadas que resuelven problemas reales. Nuestro equipo de expertos trabaja estrechamente con cada cliente para entender sus necesidades específicas y desarrollar estrategias que generen resultados tangibles.</p>
                     <p>Creemos en el poder de los datos para transformar negocios, y nos apasiona ayudar a nuestros clientes a aprovechar ese poder para impulsar su crecimiento y éxito.</p>
                 </div>
-                <div class="about-image">
+                <div class="about-image fade-in">
                     <img src="/api/placeholder/500/350" alt="Equipo de Iterum">
                 </div>
             </div>
@@ -562,9 +830,9 @@
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="container">
-            <h2 class="section-title">Por qué elegirnos</h2>
+            <h2 class="section-title fade-in">Por qué elegirnos</h2>
             <div class="features-grid">
-                <div class="feature-item">
+                <div class="feature-item fade-in">
                     <div class="feature-icon">
                         <i class="fas fa-user-tie"></i>
                     </div>
@@ -572,7 +840,7 @@
                     <p>Nuestro equipo cuenta con amplia experiencia en análisis de datos y optimización de procesos empresariales.</p>
                 </div>
                 
-                <div class="feature-item">
+                <div class="feature-item fade-in">
                     <div class="feature-icon">
                         <i class="fas fa-laptop-code"></i>
                     </div>
@@ -580,7 +848,7 @@
                     <p>Utilizamos las últimas tecnologías y herramientas para ofrecer soluciones innovadoras y eficientes.</p>
                 </div>
                 
-                <div class="feature-item">
+                <div class="feature-item fade-in">
                     <div class="feature-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
@@ -588,7 +856,7 @@
                     <p>Creamos soluciones a medida adaptadas a las necesidades específicas de cada cliente.</p>
                 </div>
                 
-                <div class="feature-item">
+                <div class="feature-item fade-in">
                     <div class="feature-icon">
                         <i class="fas fa-chart-bar"></i>
                     </div>
@@ -603,7 +871,7 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="contact-container">
-                <div class="contact-info">
+                <div class="contact-info fade-in">
                     <h2>Ponte en contacto</h2>
                     <p>Estamos aquí para responder a tus preguntas y ayudarte a encontrar la mejor solución para tu empresa.</p>
                     
@@ -629,7 +897,7 @@
                     </div>
                 </div>
                 
-                <div class="contact-form">
+                <div class="contact-form fade-in">
                     <h2>Envíanos un mensaje</h2>
                     <form id="contactForm">
                         <div class="form-group">
@@ -644,116 +912,4 @@
                         
                         <div class="form-group">
                             <label for="subject">Asunto</label>
-                            <input type="text" id="subject" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Mensaje</label>
-                            <textarea id="message" class="form-control" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="submit-btn">Enviar Mensaje</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Iterum</h3>
-                    <p>Transformando datos en valor para impulsar tu negocio hacia el éxito.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Enlaces Rápidos</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#services">Servicios</a></li>
-                        <li><a href="#about">Nosotros</a></li>
-                        <li><a href="#features">Soluciones</a></li>
-                        <li><a href="#contact">Contacto</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Servicios</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Analítica de Datos</a></li>
-                        <li><a href="#">Back Office</a></li>
-                        <li><a href="#">Gestión de Datos</a></li>
-                        <li><a href="#">Consultoría</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 Iterum. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            document.getElementById('navLinks').classList.toggle('active');
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 90,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    document.getElementById('navLinks').classList.remove('active');
-                }
-            });
-        });
-        
-        // Form submission handler
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Add your form submission logic here
-            
-            // Example: Basic validation and success message
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            if (name && email && subject && message) {
-                alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
-                this.reset();
-            } else {
-                alert('Por favor completa todos los campos del formulario.');
-            }
-        });
-        
-        // Add scroll event to make header sticky with shadow
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.boxShadow = 'none';
-            }
-        });
-    </script>
-</body>
-</html>
+                            <input type="text" id="subject" class="form-

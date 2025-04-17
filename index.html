@@ -1,69 +1,105 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iterum Consultoría Analítica</title>
-    <!-- Cargando las fuentes desde Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> <!-- Enlazando el archivo CSS -->
-</head>
-<body>
-    <!-- Encabezado -->
-    <header>
-        <nav>
-            <img src="logo.png" alt="Logo Iterum" width="150"> <!-- Logo -->
-            <ul>
-                <li><a href="#services">Servicios</a></li>
-                <li><a href="#about">Nosotros</a></li>
-                <li><a href="#contact">Contacto</a></li>
-            </ul>
-        </nav>
-        <div class="hero">
-            <h1>Consultoría Analítica para Impulsar Tu Negocio</h1>
-            <p>Ofrecemos soluciones basadas en datos para una toma de decisiones más estratégica.</p>
-        </div>
-    </header>
+/* Establecer la fuente y los colores */
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #FDFDFD; /* Fondo blanco */
+    color: #3D2C41; /* Texto principal */
+    margin: 0;
+    padding: 0;
+}
 
-    <!-- Servicios -->
-    <section id="services">
-        <h2>Servicios</h2>
-        <div class="service-item">
-            <h3>Análisis de Datos</h3>
-            <p>Con nuestro análisis detallado, tomas decisiones más informadas y estratégicas.</p>
-        </div>
-        <div class="service-item">
-            <h3>Consultoría Estratégica</h3>
-            <p>Transforma tu organización con soluciones personalizadas basadas en datos.</p>
-        </div>
-        <div class="service-item">
-            <h3>Automatización de Procesos</h3>
-            <p>Implementamos herramientas para optimizar y automatizar tus flujos de trabajo.</p>
-        </div>
-    </section>
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #3D2C41; /* Títulos con color principal */
+}
 
-    <!-- Nosotros -->
-    <section id="about">
-        <h2>Nosotros</h2>
-        <p>Iterum es una consultora especializada en transformar datos en decisiones inteligentes. Contamos con un equipo altamente capacitado para ofrecer soluciones personalizadas.</p>
-    </section>
+/* Estilos para el encabezado */
+header {
+    background-color: #7A9E9F; /* Color de fondo del header */
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
 
-    <!-- Contacto -->
-    <section id="contact">
-        <h2>Contacto</h2>
-        <p>Contáctanos para conocer más sobre nuestros servicios o para agendar una consulta.</p>
-        <form>
-            <label for="name">Nombre</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Correo Electrónico</label>
-            <input type="email" id="email" name="email" required>
-            <textarea id="message" name="message" placeholder="Escribe tu mensaje..." required></textarea>
-            <button type="submit">Enviar</button>
-        </form>
-    </section>
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    <footer>
-        <p>&copy; 2025 Iterum. Todos los derechos reservados.</p>
-    </footer>
-</body>
-</html>
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    background-color: #3D2C41; /* Fondo oscuro para la sección principal */
+    color: white;
+    padding: 50px 0;
+}
+
+.hero h1 {
+    font-size: 3rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+/* Estilos para las secciones */
+section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#services .service-item {
+    margin: 20px 0;
+}
+
+#services .service-item h3 {
+    color: #7A9E9F;
+}
+
+#services .service-item p {
+    font-size: 1rem;
+}
+
+/* Estilo de los formularios */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+form input, form textarea, form button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+form button {
+    background-color: #7A9E9F;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #3D2C41;
+}
+
+/* Estilos del pie de página */
+footer {
+    background-color: #CFCFCF; /* Fondo gris claro */
+    text-align: center;
+    padding: 20px;
+}

@@ -1,0 +1,49 @@
+/* Establecer la fuente y los colores */
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #FDFDFD; /* Fondo blanco */
+    color: #3D2C41; /* Texto principal */
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #3D2C41; /* Títulos con color principal */
+}
+
+header {
+    background-color: #7A9E9F; /* Color de fondo del header */
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+footer {
+    background-color: #CFCFCF; /* Fondo gris claro para el footer */
+    padding: 10px;
+    text-align: center;
+}
+
+a {
+    color: #3D2C41; /* Enlaces con el color principal */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+/* Botón */
+.button {
+    background-color: #7A9E9F; /* Color de botón */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #3D2C41; /* Cambio de color en hover */
+}

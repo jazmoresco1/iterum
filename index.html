@@ -14,6 +14,7 @@
             --secondary-color: #CFCFCF;
             --white-color: #FDFDFD;
             --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --menu-height: 70px; /* Variable para la altura del menú */
         }
         
         * {
@@ -42,7 +43,7 @@
         
         /* Header */
         header {
-            background-color: var(--white-color);
+            background-color: var(--secondary-color);
             box-shadow: var(--box-shadow);
             position: fixed;
             width: 100%;
@@ -55,16 +56,19 @@
             justify-content: space-between;
             align-items: center;
             padding: 0;
+            height: var(--menu-height);
         }
         
         .logo-container {
             display: flex;
             align-items: center;
+            height: var(--menu-height);
         }
         
         .logo {
-            height: 70px; /* Ajustado para que coincida con la altura del menú */
-            padding: 10px 0;
+            height: 100%; /* Hará que el logo ocupe toda la altura disponible */
+            max-height: var(--menu-height);
+            display: block;
         }
         
         .slogan {
@@ -77,11 +81,9 @@
         .nav-links {
             display: flex;
             list-style: none;
-            height: 70px;
-            background-color: var(--secondary-color);
+            height: var(--menu-height);
             align-items: center;
-            padding: 0 20px;
-            border-radius: 0 0 0 20px;
+            padding: 0;
         }
         
         .nav-links li {
@@ -103,6 +105,9 @@
             display: none;
             font-size: 24px;
             cursor: pointer;
+            height: var(--menu-height);
+            display: flex;
+            align-items: center;
         }
         
         /* Hero Section */
@@ -428,25 +433,18 @@
                 padding: 0 15px;
             }
             
-            .logo-container {
-                display: flex;
-                align-items: center;
-                padding: 10px 0;
-            }
-            
             .slogan {
                 display: none; /* Oculta el slogan en dispositivos móviles */
             }
             
             .menu-toggle {
-                display: block;
-                padding: 20px 0;
+                display: flex;
             }
             
             .nav-links {
                 display: none;
                 position: absolute;
-                top: 70px;
+                top: var(--menu-height);
                 left: 0;
                 width: 100%;
                 background-color: var(--secondary-color);
@@ -454,7 +452,6 @@
                 text-align: center;
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
                 height: auto;
-                border-radius: 0;
             }
             
             .nav-links.active {

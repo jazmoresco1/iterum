@@ -1,98 +1,122 @@
-/* Estilos globales */
+/* Establecer la fuente y los colores */
 body {
     font-family: 'Lato', sans-serif;
+    background-color: #FDFDFD; /* Fondo blanco */
+    color: #3D2C41; /* Texto principal */
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-/* Estilo del encabezado */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #3D2C41; /* Títulos con color principal */
+}
+
+/* Estilos para el encabezado */
 header {
-    background-color: #CFCFCF; /* Fondo del menú */
-    color: #3D2C41; /* Color de los textos del menú */
-    padding: 10px 20px;
+    background-color: #7A9E9F; /* Color de fondo del header */
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+header nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #FCFCFC; /* Fondo del menú */
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
-header .logo {
-    display: flex;
-    align-items: center;
+header nav .logo {
+    width: 150px; /* Tamaño del logo */
+    margin-bottom: 20px; /* Separación del logo */
 }
 
-header .logo img {
-    height: 40px; /* Ajusta el tamaño del logo */
+header nav p.slogan {
+    font-family: 'Lato', sans-serif;
+    color: #3D2C41; /* Color del slogan */
+    font-size: 1.5rem; /* Tamaño de la fuente del slogan */
+    margin-left: 15px; /* Separación con el logo */
+    font-weight: 400;
 }
 
-header .logo h1 {
-    font-family: 'Playfair Display', serif;
-    margin-left: 10px;
-    font-size: 1.8em;
-    color: #3D2C41;
-}
-
-nav ul {
+header nav ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
 }
 
-nav ul li {
-    margin: 0 20px;
+header nav ul li {
+    margin: 0 15px;
 }
 
-nav ul li a {
-    color: #3D2C41; /* Color de los botones */
+header nav ul li a {
+    color: #3D2C41; /* Color del texto en el menú */
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
+    font-size: 1rem; /* Tamaño similar al del menú de la página que copiaste */
 }
 
-/* Estilo para la sección hero */
 .hero {
-    background-image: url('https://github.com/usuario/repositorio/raw/main/images/mi-imagen.jpg'); /* URL de tu imagen */
-    background-size: cover;
-    background-position: center;
-    height: 100vh; /* Altura completa de la ventana */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #ffffff;
-    position: relative;
+    background-color: #3D2C41; /* Fondo oscuro para la sección principal */
+    color: white;
+    padding: 50px 0;
 }
 
-.hero-content {
-    z-index: 2;
-}
-
-.hero h2 {
-    font-size: 3em;
-    margin: 0;
-    font-family: 'Playfair Display', serif;
+.hero h1 {
+    font-size: 3rem;
 }
 
 .hero p {
-    font-size: 1.5em;
-    font-family: 'Lato', sans-serif;
-    max-width: 800px;
-    margin-top: 20px;
+    font-size: 1.2rem;
 }
 
-/* Efecto de sombra en el texto */
-.hero h2, .hero p {
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+/* Estilos para las secciones */
+section {
+    padding: 50px 20px;
+    text-align: center;
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-    .hero h2 {
-        font-size: 2.5em;
-    }
-
-    .hero p {
-        font-size: 1.2em;
-    }
+#services .service-item {
+    margin: 20px 0;
 }
 
+#services .service-item h3 {
+    color: #7A9E9F;
+}
+
+#services .service-item p {
+    font-size: 1rem;
+}
+
+/* Estilo de los formularios */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+form input, form textarea, form button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+form button {
+    background-color: #7A9E9F;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #3D2C41;
+}
+
+/* Estilos del pie de página */
+footer {
+    background-color: #CFCFCF; /* Fondo gris claro */
+    text-align: center;
+    padding: 20px;
+}

@@ -54,16 +54,34 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
         }
         
         .logo {
-            max-height: 60px;
+            height: 70px; /* Ajustado para que coincida con la altura del menú */
+            padding: 10px 0;
+        }
+        
+        .slogan {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            margin-left: 15px;
+            color: var(--primary-color);
         }
         
         .nav-links {
             display: flex;
             list-style: none;
+            height: 70px;
+            background-color: var(--secondary-color);
+            align-items: center;
+            padding: 0 20px;
+            border-radius: 0 0 0 20px;
         }
         
         .nav-links li {
@@ -407,23 +425,36 @@
         
         @media (max-width: 768px) {
             .header-container {
-                padding: 15px;
+                padding: 0 15px;
+            }
+            
+            .logo-container {
+                display: flex;
+                align-items: center;
+                padding: 10px 0;
+            }
+            
+            .slogan {
+                display: none; /* Oculta el slogan en dispositivos móviles */
             }
             
             .menu-toggle {
                 display: block;
+                padding: 20px 0;
             }
             
             .nav-links {
                 display: none;
                 position: absolute;
-                top: 90px;
+                top: 70px;
                 left: 0;
                 width: 100%;
-                background-color: var(--white-color);
+                background-color: var(--secondary-color);
                 flex-direction: column;
                 text-align: center;
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                height: auto;
+                border-radius: 0;
             }
             
             .nav-links.active {
@@ -433,7 +464,7 @@
             .nav-links li {
                 margin: 0;
                 padding: 15px 0;
-                border-bottom: 1px solid #eee;
+                border-bottom: 1px solid #bbb;
             }
             
             .hero h1 {
@@ -450,7 +481,10 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <a href="#"><img src="logo.png" alt="Iterum Logo" class="logo"></a>
+            <div class="logo-container">
+                <a href="#"><img src="logo.png" alt="Iterum Logo" class="logo"></a>
+                <span class="slogan">Soluciones que evolucionan con vos</span>
+            </div>
             <div class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
             </div>
@@ -726,4 +760,3 @@
     </script>
 </body>
 </html>
-

@@ -3,31 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iterum</title>
+    <title>Iterum Consultoría Analítica</title>
     <!-- Cargando las fuentes desde Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css"> <!-- Enlazando el archivo CSS -->
 </head>
 <body>
+    <!-- Encabezado -->
     <header>
-        <img src="logo.png" alt="Logo de Iterum" width="150"> <!-- Asegúrate de subir tu logo -->
-        <h1>Bienvenidos a Iterum</h1>
+        <nav>
+            <img src="logo.png" alt="Logo Iterum" width="150"> <!-- Logo -->
+            <ul>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#about">Nosotros</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>Consultoría Analítica para Impulsar Tu Negocio</h1>
+            <p>Ofrecemos soluciones basadas en datos para una toma de decisiones más estratégica.</p>
+        </div>
     </header>
 
-    <main>
-        <section>
-            <h2>Nuestra Misión</h2>
-            <p>Descripción de la misión...</p>
-        </section>
-        <section>
-            <h2>Servicios</h2>
-            <p>Descripción de los servicios...</p>
-        </section>
-    </main>
+    <!-- Servicios -->
+    <section id="services">
+        <h2>Servicios</h2>
+        <div class="service-item">
+            <h3>Análisis de Datos</h3>
+            <p>Con nuestro análisis detallado, tomas decisiones más informadas y estratégicas.</p>
+        </div>
+        <div class="service-item">
+            <h3>Consultoría Estratégica</h3>
+            <p>Transforma tu organización con soluciones personalizadas basadas en datos.</p>
+        </div>
+        <div class="service-item">
+            <h3>Automatización de Procesos</h3>
+            <p>Implementamos herramientas para optimizar y automatizar tus flujos de trabajo.</p>
+        </div>
+    </section>
+
+    <!-- Nosotros -->
+    <section id="about">
+        <h2>Nosotros</h2>
+        <p>Iterum es una consultora especializada en transformar datos en decisiones inteligentes. Contamos con un equipo altamente capacitado para ofrecer soluciones personalizadas.</p>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contact">
+        <h2>Contacto</h2>
+        <p>Contáctanos para conocer más sobre nuestros servicios o para agendar una consulta.</p>
+        <form>
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Correo Electrónico</label>
+            <input type="email" id="email" name="email" required>
+            <textarea id="message" name="message" placeholder="Escribe tu mensaje..." required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
 
     <footer>
         <p>&copy; 2025 Iterum. Todos los derechos reservados.</p>
-        <a href="#" class="button">Contáctanos</a>
     </footer>
 </body>
 </html>

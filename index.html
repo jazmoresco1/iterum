@@ -140,14 +140,10 @@
             width: 100%;
         }
         
-        .menu-toggle {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-            height: var(--menu-height);
-            display: flex;
-            align-items: center;
-        }
+          .menu-toggle {
+        display: none !important; /* Asegúrate de que nunca se muestre */
+    }
+}
         
         /* Hero Section */
 .hero {
@@ -717,19 +713,15 @@
                 display: flex;
             }
             
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: var(--menu-height);
-                left: 0;
-                width: 100%;
-                background-color: var(--secondary-color);
-                flex-direction: column;
-                text-align: center;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-                height: auto;
-                z-index: 100;
-            }
+           .nav-links {
+        display: flex !important; /* Fuerza la visualización */
+        position: static; /* En lugar de absolute */
+        top: auto;
+        width: auto;
+        background-color: transparent;
+        flex-direction: row;
+        box-shadow: none;
+    }
             
             .nav-links.active {
                 display: flex;
@@ -771,10 +763,6 @@
             <div class="logo-container">
                 <a href="#hero"><img src="logo.png" alt="Iterum Logo" class="logo"></a>
                 <span class="slogan">Soluciones que evolucionan con vos</span>
-            </div>
-            <div class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#hero" class="active">Inicio</a></li>
                 <li><a href="#services">Servicios</a></li>
@@ -1046,29 +1034,39 @@
         
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Close mobile menu if open
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                }
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Close mobile menu if open
+        if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+        }
+        
+        const targetId = this.getAttribute('href');
+        
+        // Scroll especial para el enlace de inicio
+        if (targetId === "#hero") {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
                 window.scrollTo({
                     top: targetElement.offsetTop - 80,
                     behavior: 'smooth'
                 });
-                
-                // Update active link
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.classList.remove('active');
-                });
-                this.classList.add('active');
-            });
+            }
+        }
+        
+        // Update active link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.classList.remove('active');
         });
+        this.classList.add('active');
+    });
+});
         
         // Back to top button functionality
         backToTop.addEventListener('click', () => {

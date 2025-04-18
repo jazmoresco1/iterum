@@ -151,13 +151,24 @@
         
         /* Hero Section */
         .hero {
-            padding: 180px 0 120px; /* Aumentado para compensar el menú más alto */
-            background-color: var(--primary-color);
-            color: var(--white-color);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+    padding: 150px 0 100px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+}
         
         .hero::before {
             content: '';
@@ -764,14 +775,16 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="container">
-            <h1>Transformando datos en valor para tu negocio</h1>
-            <p>En Iterum nos especializamos en consultoría de datos y servicios de back office para impulsar la eficiencia y el crecimiento de tu empresa.</p>
-            <a href="#contact" class="cta-button">Contáctanos</a>
-        </div>
-    </section>
+<section class="hero">
+    <video autoplay muted loop id="bg-video">
+        <source src="mi-video.mp4" type="video/mp4">
+    </video>
+    <div class="container">
+        <h1>Transformando datos en valor para tu negocio</h1>
+        <p>En Iterum nos especializamos en consultoría de datos y servicios de back office para impulsar la eficiencia y el crecimiento de tu empresa.</p>
+        <a href="#contact" class="cta-button">Contáctanos</a>
+    </div>
+</section>
 
     <!-- Services Section -->
     <section class="services" id="services">

@@ -150,39 +150,19 @@
             align-items: center;
         }
         
-        /* Hero Section */
+       /* Hero Section */
 .hero {
-    padding: 150px 0 100px;
-    background-color: transparent; /* Cambiado de var(--primary-color) */
-    color: var(--white-color);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-#bg-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%; /* Ancho fijo */
-    height: 100%; /* Alto fijo */
-    object-fit: cover; /* Cubre toda el área */
-    z-index: 0;
-}
-
-/* Primero, ajustamos el contenedor hero para que tenga una altura definida */
-.hero {
-    padding: 0; /* Quitamos el padding que dependía del contenido */
-    height: 100vh; /* Altura completa de la ventana */
-    min-height: 600px; /* Altura mínima para pantallas pequeñas */
-    background-color: var(--primary-color);
+    padding: 0;
+    height: 100vh;
+    min-height: 600px;
+    background-color: var(--primary-color); /* Fallback color if video doesn't load */
     color: var(--white-color);
     text-align: center;
     position: relative;
     overflow: hidden;
     display: flex;
-    align-items: center; /* Centramos verticalmente el contenido */
+    align-items: center;
+}
 
 .hero::before {
     content: '';
@@ -194,29 +174,69 @@
     background: linear-gradient(135deg, rgba(61, 44, 65, 0.2) 0%, rgba(61, 44, 65, 0.3) 100%);
     z-index: 1;
 }
-        
-      .hero .container {
-    position: relative;
-    z-index: 2;
-    padding-top: var(--menu-height); /* Espacio para el menú */
+
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
 }
 
-        
-       .hero h1 {
+.hero .container {
+    position: relative;
+    z-index: 2;
+    padding-top: 0;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero h1 {
     font-size: 3.5rem;
     margin-bottom: 25px;
     animation: fadeInUp 1s ease;
 }
-        
-     .hero p {
+
+.hero p {
     font-size: 1.3rem;
     max-width: 800px;
     margin: 0 auto 40px;
     animation: fadeInUp 1s ease 0.2s;
     animation-fill-mode: both;
 }
-        
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--white-color);
+    color: var(--primary-color);
+    padding: 12px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s ease 0.4s;
+    animation-fill-mode: both;
+}
+
+.cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Media queries para responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+}
         .cta-button {
             display: inline-block;
             background-color: var(--white-color);
@@ -790,14 +810,13 @@
                 <li><a href="#contact">Contacto</a></li>
             </ul>
         </div>
-    </header>
 <section class="hero" id="hero">
   <video autoplay muted loop id="bg-video" playsinline>
     <source src="mi-video.mp4" type="video/mp4">
     Tu navegador no soporta el video.
   </video>
   <div class="container">
-    <h1>Transofrmando datos en valor para tu negocio</h1>
+    <h1>Transformando datos en valor para tu negocio</h1>
     <p>En Iterum nos especializamos en consultoría de datos y servicios de back office para impulsar la eficiencia y el crecimiento de tu empresa.</p>
     <a href="#contact" class="cta-button">Contáctanos</a>
   </div>

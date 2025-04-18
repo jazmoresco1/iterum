@@ -58,22 +58,20 @@
             backdrop-filter: blur(5px);
         }
         
-       .header-container {
-    display: flex;
-    justify-content: flex-start; /* Cambiado a flex-start para alinear a la izquierda */
-    align-items: center;
-    padding: 0 15px 0 0; /* Menos padding a la izquierda */
-    height: var(--menu-height);
-}
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0;
+            height: var(--menu-height);
+        }
         
-       .logo-container {
-    display: flex;
-    align-items: center;
-    height: var(--menu-height);
-    padding-left: 0; /* Elimina cualquier padding a la izquierda */
-    margin-left: 0; /* Elimina cualquier margen a la izquierda */
-    flex: 0; /* Cambiado de 1 a 0 para que no se expanda */
-}
+        .logo-container {
+            display: flex;
+            align-items: center;
+            height: var(--menu-height);
+            flex: 1;
+        }
         
         .logo {
             height: 100%; /* Aumentado para que el logo sea más grande */

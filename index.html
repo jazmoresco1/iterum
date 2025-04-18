@@ -161,8 +161,9 @@
 
 #bg-video {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     min-width: 100%;
     min-height: 100%;
     width: auto;
@@ -170,7 +171,6 @@
     z-index: 0;
     object-fit: cover;
 }
-
 .hero {
     padding: 150px 0 100px;
     background-color: var(--primary-color); /* Fallback color if video doesn't load */

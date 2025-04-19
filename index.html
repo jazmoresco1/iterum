@@ -1145,5 +1145,15 @@
     <p>Nos pondremos en contacto lo antes posible.</p>
   </div>
 </section>
+    <script>
+  // Mostrar sección de gracias si la URL contiene #gracias
+  if (window.location.hash === "#gracias") {
+    document.querySelector("#gracias").style.display = "block";
+    // También podrías ocultar el formulario si querés
+    const form = document.querySelector("form");
+    if (form) form.style.display = "none";
+  }
+</script>
+
 </body>
 </html>

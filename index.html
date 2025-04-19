@@ -892,8 +892,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Contact Section -->
+<!-- Contact Section -->
 <section class="contact" id="contact">
   <div class="container">
     <div class="contact-container">
@@ -926,7 +925,7 @@
 
       <div class="contact-form fade-in">
         <h2>Envíanos un mensaje</h2>
-        <form action="https://formspree.io/f/movegdly" method="POST">
+        <form id="contactForm" action="https://formspree.io/f/movegdly" method="POST">
           <div class="form-group">
             <label for="name">Nombre</label>
             <input type="text" id="name" name="name" class="form-control" required>
@@ -947,11 +946,14 @@
             <textarea id="message" name="message" class="form-control" required></textarea>
           </div>
 
-          <!-- Campo oculto para redirección -->
-          <input type="hidden" name="_next" value="https://iterum.com.ar/#gracias">
+          <!-- Asegúrate de usar la URL completa y correcta de tu sitio -->
+          <input type="hidden" name="_next" value="https://iterum.com.ar/index.html#gracias">
           
           <!-- Campo honeypot para evitar spam -->
           <input type="text" name="_gotcha" style="display:none">
+          
+          <!-- Para mantener la página en el mismo sitio -->
+          <input type="hidden" name="_subject" value="Nuevo mensaje de contacto desde el sitio web">
 
           <button type="submit" class="submit-btn">Enviar Mensaje</button>
         </form>
@@ -960,6 +962,7 @@
     </div>
   </div>
 </section>
+
 
 
     <!-- Footer -->
@@ -1139,12 +1142,39 @@
             });
         });
     </script>
-    <section id="gracias" class="gracias fade-in">
+    <!-- Sección de gracias, inicialmente oculta -->
+<section id="gracias" class="gracias fade-in" style="display: none; padding: 100px 0; background-color: var(--secondary-color); text-align: center;">
   <div class="container">
+    <div class="service-icon" style="margin-bottom: 30px;">
+      <i class="fas fa-check-circle"></i>
+    </div>
     <h2>¡Gracias por tu mensaje!</h2>
-    <p>Nos pondremos en contacto lo antes posible.</p>
+    <p>Hemos recibido tu consulta y nos pondremos en contacto lo antes posible.</p>
+    <a href="#hero" class="cta-button" style="margin-top: 30px;">Volver al inicio</a>
   </div>
 </section>
+    <script>
+  // Verificar si la URL tiene el hash #gracias al cargar la página
+  document.addEventListener('DOMContentLoaded', function() {
+    checkThankYouHash();
+  });
+
+  // Verificar también si cambia el hash de la URL
+  window.addEventListener('hashchange', function() {
+    checkThankYouHash();
+  });
+
+  function checkThankYouHash() {
+    if (window.location.hash === "#gracias") {
+      // Ocultar sección de contacto
+      document.querySelector("#contact").style.display = "none";
+      // Mostrar sección de gracias
+      document.querySelector("#gracias").style.display = "block";
+      // Scroll suave hacia la sección de gracias
+      document.querySelector("#gracias").scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script>
     <script>
   // Mostrar sección de gracias si la URL contiene #gracias
   if (window.location.hash === "#gracias") {

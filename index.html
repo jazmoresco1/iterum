@@ -210,35 +210,36 @@
     margin-top: 70px;
     animation: fadeInUp 1s ease;
     text-align: center;
+    opacity: 0.8; /* Añadido para hacer el título más transparente */
 }
         
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            animation: fadeInUp 1s ease 0.2s;
-            animation-fill-mode: both;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: var(--white-color);
-            color: var(--primary-color);
-            padding: 12px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            animation: fadeInUp 1s ease 0.4s;
-            animation-fill-mode: both;
-        }
+       .hero p {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    animation: fadeInUp 1s ease 0.2s;
+    animation-fill-mode: both;
+    opacity: 0.8; /* Añadido para hacer el texto más transparente */
+}
+            .cta-button {
+    display: inline-block;
+    background-color: rgba(253, 253, 253, 0.8); /* Cambiado para hacer el botón más transparente */
+    color: var(--primary-color);
+    padding: 12px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    animation: fadeInUp 1s ease 0.4s;
+    animation-fill-mode: both;
+}
         
         .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
-        }
-        
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    background-color: rgba(253, 253, 253, 0.9); /* Un poco menos transparente en hover */
+}
         /* Services Section */
         .services {
             padding: 100px 0;

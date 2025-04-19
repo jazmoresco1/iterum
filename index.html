@@ -1094,15 +1094,11 @@
         // Form submission
         const contactForm = document.getElementById('contactForm');
         
-        contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Here you would typically add code to handle the form submission
-    // For example, using fetch to send the data to a server
-    
-    // For Arimo, just show a success message
-    alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
-    contactForm.reset();
+      // Reemplaza tu actual manejador de eventos del formulario con este:
+contactForm.addEventListener('submit', (e) => {
+    // No prevenir el envío predeterminado (elimina e.preventDefault())
+    // El formulario se enviará a Formspree
+    // Opcionalmente puedes mostrar un mensaje de carga o deshabilitar el botón aquí
 });
         
         // Active navigation based on scroll position

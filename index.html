@@ -1096,9 +1096,34 @@
         
       // Reemplaza tu actual manejador de eventos del formulario con este:
 contactForm.addEventListener('submit', (e) => {
-    // No prevenir el envío predeterminado (elimina e.preventDefault())
-    // El formulario se enviará a Formspree
-    // Opcionalmente puedes mostrar un mensaje de carga o deshabilitar el botón aquí
+    e.preventDefault();
+    
+    const formData = new FormData(contactForm);
+    
+    fetch('https://formspree.io/f/movegdly', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            // Redireccionar a la sección de agradecimiento
+            window.location.hash = "#gracias";
+            // Mostrar la sección de gracias
+            document.querySelector("#contact").style.display = "none";
+            document.querySelector("#gracias").style.display = "block";
+            // Scroll suave hacia la sección de gracias
+            document.querySelector("#gracias").scrollIntoView({ behavior: 'smooth' });
+        } else {
+            alert('Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.');
+    });
 });
         
         // Active navigation based on scroll position

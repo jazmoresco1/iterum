@@ -388,18 +388,19 @@
             font-size: 1.05rem;
         }
         
-        .about-image {
-            flex: 1;
-            text-align: center;
-            position: relative;
-        }
-        
-        .about-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: var(--box-shadow);
-            transition: transform 0.5s, box-shadow 0.5s;
-        }
+   .about-image {
+  max-width: 100%; /* Esto hace que el contenedor del video no se desborde */
+  display: flex;
+  justify-content: center; /* Centra el video dentro del contenedor */
+  align-items: center; /* Alinea el video verticalmente */
+}
+
+.about-image video {
+  width: 100%; /* El video ocupará el 100% del contenedor */
+  height: auto; /* Mantiene las proporciones del video */
+  max-width: 800px; /* Limita el ancho máximo del video */
+  object-fit: cover; /* Asegura que el video cubra todo el contenedor sin deformarse */
+}
         
         .about-image:hover img {
             transform: scale(1.03);
@@ -896,14 +897,17 @@
     <!-- About Section -->
 <section class="about" id="about">
     <div class="container">
-        <div class="about-content">
-            <div class="about-text fade-in">
-                <h2>Sobre Iterum</h2>
-                <p>Somos una consultoría especializada en datos y back office comprometida con ayudar a las empresas a alcanzar su máximo potencial a través de la optimización de procesos y el análisis de datos.</p>
-                <p>En Iterum, combinamos conocimiento técnico con experiencia práctica para ofrecer soluciones personalizadas que resuelven problemas reales. Nuestro equipo de expertos trabaja estrechamente con cada cliente para entender sus necesidades específicas y desarrollar estrategias que generen resultados tangibles.</p>
-                <p>Creemos en el poder de los datos para transformar negocios, y nos apasiona ayudar a nuestros clientes a aprovechar ese poder para impulsar su crecimiento y éxito.</p>
-            </div>
-            <div class="about-image fade-in">
+       <div class="about-section">
+  <div class="container">
+    <div class="about-text">
+      <h2>Sobre Iterum</h2>
+      <p>Somos una consultoría especializada en datos y back office comprometida con ayudar a las empresas a alcanzar su máximo potencial a través de la optimización de procesos y el análisis de datos.</p>
+      <p>En Iterum, combinamos conocimiento técnico con experiencia práctica para ofrecer soluciones personalizadas que resuelven problemas reales. Nuestro equipo de expertos trabaja estrechamente con cada cliente para entender sus necesidades específicas y desarrollar estrategias que generen resultados tangibles.</p>
+      <p>Creemos en el poder de los datos para transformar negocios, y nos apasiona ayudar a nuestros clientes a aprovechar ese poder para impulsar su crecimiento y éxito.</p>
+    </div>
+    
+    <!-- Video en lugar de la imagen -->
+    <div class="about-image fade-in">
       <video autoplay loop muted>
         <source src="https://github.com/jazmoresco1/iterum/raw/main/loop.mp4" type="video/mp4">
         Tu navegador no soporta el formato de video.

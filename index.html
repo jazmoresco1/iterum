@@ -413,7 +413,27 @@
     margin-bottom: 20px;
     font-size: 1.05rem;
     color: var(--white-color);
+}
 
+        
+   .about-image {
+  max-width: 100%; /* Esto hace que el contenedor del video no se desborde */
+  display: flex;
+  justify-content: center; /* Centra el video dentro del contenedor */
+  align-items: center; /* Alinea el video verticalmente */
+}
+
+.about-image video {
+  width: 100%; /* El video ocupará el 100% del contenedor */
+  height: auto; /* Mantiene las proporciones del video */
+  max-width: 800px; /* Limita el ancho máximo del video */
+  object-fit: cover; /* Asegura que el video cubra todo el contenedor sin deformarse */
+}
+        
+        .about-image:hover img {
+            transform: scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
         
         /* Features Section */
         .features {

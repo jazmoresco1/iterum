@@ -352,9 +352,19 @@
         /* About Section */
        .about {
     padding: 100px 0;
-    background-color: var(--primary-color);
+    background-color: var(--primary-color); /* Color de respaldo */
     position: relative;
     overflow: hidden;
+}
+
+#about-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
 }
 
 .about .overlay {
@@ -363,7 +373,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: 1;
 }
 
@@ -374,21 +384,11 @@
 
 .about-content {
     display: flex;
-    flex-direction: row;
-    gap: 40px;
-    align-items: center;
+    flex-direction: column;
 }
 
 .about-text {
     color: var(--white-color);
-    flex: 1;
-}
-
-.about-video {
-    flex: 1;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .about-text h2 {
@@ -414,6 +414,7 @@
     font-size: 1.05rem;
     color: var(--white-color);
 }
+
         
    .about-image {
   max-width: 100%; /* Esto hace que el contenedor del video no se desborde */
@@ -754,40 +755,9 @@
         
         /* Responsive Design */
         @media (max-width: 992px) {
-            @media (max-width: 992px) {
-    .about-content {
-        flex-direction: column;
-    }
-    
-    .about-video {
-        margin-top: 30px;
-        width: 100%;
-    }
-    
-    .about-video iframe {
-        height: 350px;
-    }
-}
-
-@media (max-width: 768px) {
-    .about-video iframe {
-        height: 240px;
-    }
-    
-    .about-text h2 {
-        font-size: 2rem;
-    }
-    
-    .about-text p {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .about-video iframe {
-        height: 200px;
-    }
-}
+            .about-content {
+                flex-direction: column;
+            }
             
             .service-card {
                 margin-bottom: 30px;
@@ -951,13 +921,10 @@
 
     <!-- About Section -->
 <section class="about" id="about">
-    <!-- Quitamos el video anterior que no funcionaba -->
-    <!-- <video autoplay muted loop id="about-bg-video" playsinline>
-        <source src="https://github.com/jazmoresco1/iterum/raw/main/videosobrenosotros.mp4" type="video/mp4">
+    <video autoplay muted loop id="about-bg-video" playsinline>
+        <source src="https://github.com/jazmoresco1/iterum/raw/main/videsobrenosotros.mp4" type="video/mp4">
         Tu navegador no soporta videos.
-    </video> -->
-    
-    <!-- Solución con iframe de YouTube como elemento principal -->
+    </video>
     <div class="overlay"></div>
     <div class="container">
         <div class="about-content">
@@ -966,9 +933,6 @@
                 <p>Somos una consultoría especializada en datos y back office comprometida con ayudar a las empresas a alcanzar su máximo potencial a través de la optimización de procesos y el análisis de datos.</p>
                 <p>En Iterum, combinamos conocimiento técnico con experiencia práctica para ofrecer soluciones personalizadas que resuelven problemas reales. Nuestro equipo de expertos trabaja estrechamente con cada cliente para entender sus necesidades específicas y desarrollar estrategias que generen resultados tangibles.</p>
                 <p>Creemos en el poder de los datos para transformar negocios, y nos apasiona ayudar a nuestros clientes a aprovechar ese poder para impulsar su crecimiento y éxito.</p>
-            </div>
-            <div class="about-video">
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/2sI8qgDVjK0?controls=0&autoplay=1&mute=1&loop=1&playlist=2sI8qgDVjK0" title="Iterum - Sobre Nosotros" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
     </div>

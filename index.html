@@ -1257,6 +1257,18 @@ contactForm.addEventListener('submit', (e) => {
                 }
             });
         });
+            // Manejador específico para el botón de contacto en la navegación
+document.getElementById('nav-contact-button').addEventListener('click', function(e) {
+    e.preventDefault();
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+        // Desplazamiento suave a la sección de contacto
+        window.scrollTo({
+            top: contactSection.offsetTop - 80,
+            behavior: 'smooth'
+        });
+    }
+});
     </script>
     <!-- Sección de gracias, inicialmente oculta -->
 <section id="gracias" class="gracias fade-in" style="display: none; padding: 100px 0; background-color: var(--secondary-color); text-align: center;">
